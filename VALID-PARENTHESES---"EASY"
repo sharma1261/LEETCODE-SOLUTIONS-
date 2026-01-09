@@ -1,0 +1,24 @@
+class Solution(object):
+    def isValid(self, s):
+       
+        pairs={
+            ')':'(',
+            '}':'{',
+            ']':'['      
+              }
+
+        stack=[]
+        for ch in s:
+            if ch in '({[':
+                stack.append(ch) #IF CH IS AN OPENING BRACKET PUT IT IN STACK
+
+            else:
+                if not stack:  #IF STACK IS EMPTY RETURN FALSE 
+                    return False
+
+                top=stack.pop() #TAKE THE LAST OPENING BRACKET FROM STACK 
+
+                if pairs[ch]!=top: #WRONG MATCH SO STRING IS NOT VALID
+                    return False
+
+        return len(stack)==0#
