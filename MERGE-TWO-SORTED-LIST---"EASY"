@@ -1,0 +1,30 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+       
+        dummy=ListNode(-1)                                        #CREATE A DUMMY NODE 
+        tail=dummy
+
+        while list1 is not None and list2 is not None :
+            if list1.val<=list2.val:                             #CHECK WHOSE VALUE S SHORTER BECAUSE WE HAVE TO ADD THE SORTED LIST 
+                tail.next=list1                                  #THEN ADD THE SHORTER VALUE AT THE TAIL
+                list1=list1.next                                 #MOVE THE POINTER OF THE LIST TO THE NEXT VALUE OF THE LIST
+
+            else:
+                tail.next=list2
+                list2=list2.next
+
+            tail=tail.next                                       #MAKE THE TAIL AS THE LAST VALUE OF THE LIST 
+
+        if list1 is not None:                                    # WHEN ONE LIST IS FINISHED THEN ADD WHATEVER YOU HAVE LEFT WITH 
+            tail.next=list1
+        else:
+            tail.next=list2
+
+        return dummy.next                                         #THE REAL HEAD OF THE MERGED LIST IS THE DUMMY 
