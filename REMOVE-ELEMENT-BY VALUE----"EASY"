@@ -1,0 +1,9 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+        k=0                                       #points towards the next value 
+        
+        for i in range(len(nums)):              
+            if nums[i]!=val:                      #check if the value is same or not
+                nums[k]=nums[i]
+                k+=1                            
+        return k 
