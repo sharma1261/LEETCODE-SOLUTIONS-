@@ -1,0 +1,9 @@
+class Solution:
+    def strStr(self, haystack, needle, occurrence=1):
+        pos = 0                    # Start position for searching (0 = beginning)
+        for _ in range(occurrence): # Loop 'occurrence' times (1st, 2nd, etc.)
+            pos = haystack.find(needle, pos)  # Find needle starting from 'pos'
+            if pos == -1:         # If not found, return -1 immediately
+                return -1
+            pos += 1              # Move past current match to find next one
+        return pos - 1            # Return final position (adjust for +1)
