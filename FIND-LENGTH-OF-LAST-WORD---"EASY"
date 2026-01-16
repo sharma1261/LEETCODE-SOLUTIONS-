@@ -1,0 +1,11 @@
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        return len(s.strip().split()[-1])
+
+
+
+
+
+#strip is used to remove the extra spaces 
+#split is used to split the  word on every space 
+#[-1] is used to grab the last word only 
