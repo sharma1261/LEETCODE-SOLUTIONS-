@@ -1,0 +1,10 @@
+class Solution(object):
+    def plusOne(self, digits):
+        
+        for i in range(len(digits)-1,-1,-1):    # range(start,stop,step)
+            if digits[i]<9:                     #check is the vaue of digits is less than 9 then it will add 1 in the digits  
+                digits[i]+=1
+                return digits 
+
+            digits[i]=0                         #if it is 9 then it will make  all 9 to 0 
+        return [1] +digits                      #this will add 1 in the front of the 9 converted to 0 
