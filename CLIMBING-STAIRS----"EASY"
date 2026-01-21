@@ -1,9 +1,19 @@
 class Solution(object):
     def climbStairs(self, n):
+        if n == 1:
+            return 1
+        if n == 2:
+            return 2
+    
+    # Initialize with CORRECT Fibonacci values for stairs
+        prev2 = 1  # ways for 1 step  
+        prev1 = 2  # ways for 2 steps
+    
+    # Build up to n steps
+        for i in range(3, n + 1):
+            current = prev2 + prev1     # ways(n) = ways(n-2) + ways(n-1)
+            prev2 = prev1               # shift pointers
+            prev1 = current
+    
+        return prev1
         
-        if n <=2:
-            return n                               #for n less than 2 value the ways for solving it will be 2 
-        prev,curr=1,2
-        for i in range(3,n+1):
-            perv,curr=curr,prev+curr                it iterate till the n+1 value and iterate the value by incrementing 
-        return curr
